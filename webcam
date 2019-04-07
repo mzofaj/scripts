@@ -1,0 +1,14 @@
+case "$1" in
+    start)
+        /home/pi/scripts/webcamDaemon
+        echo "$0: started"
+        ;;
+    stop)
+        pkill -x webcamDaemon
+        pkill -x mjpg_streamer
+        echo "$0: stopped"
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}" >&2
+        ;;
+esac
